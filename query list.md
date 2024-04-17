@@ -7,7 +7,6 @@
 -- for films released between 2005 and 2010.
 <br>
 <br>
-
 ```SELECT film_id, title, release_year```
 <br>
 ```FROM film```
@@ -16,9 +15,21 @@
 
 
 -- 3. Retrieve unique last names from the actor table.
+<br>
+<br>
+```SELECT DISTINCT last_name```
+<br>
+```FROM actor;```
+<br>
 
 -- 4. Show the title, rental duration, and rental rate and then the 
 -- rental cost (rental duration multiplied by rental rate) for each film.
+<br>
+<br>
+```SELECT title,rental_duration,rental_rate, rental_duration * rental_rate AS rental_cost```
+<br>
+```FROM film;```
+<br>
 
 
 -- 5. Retrieve the title, rental rate, and length of films with a rental 

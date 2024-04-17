@@ -1,7 +1,18 @@
 -- 1. Retrieve all information from the customer table.
+<br>
+<br>
+```SELECT * FROM customer;```
 
 -- 2. Retrieve the film ID, title, and release year from the film table 
 -- for films released between 2005 and 2010.
+<br>
+<br>
+
+```SELECT film_id, title, release_year```
+<br>
+```FROM film```
+<br>
+```WHERE release_year BETWEEN '2005' AND '2010';```
 
 
 -- 3. Retrieve unique last names from the actor table.

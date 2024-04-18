@@ -31,23 +31,52 @@
 ```FROM film;```
 <br>
 
-
 -- 5. Retrieve the title, rental rate, and length of films with a rental 
 -- duration greater than 5 days.
 -- (NOTE: rental_duration not shown, but used to select films)
-
+<br>
+<br>
+```SELECT title,rental_rate```
+<br>
+```FROM film;```
+<br>
+```WHERE rental_duration > 5;```
+<br>
 
 -- 6. Retrieve the title, rental rate, and length of films with a length 
 -- 1.5 and 2 hours (i.e. between 90 and 120 minutes).
+<br>
+<br>
+```SELECT title,rental_rate```
+<br>
+```FROM film;```
+<br>
+```WHERE length BETWEEN 90 and 120;```
+<br>
 
 
 -- 7. Retrieve the title and rating of films rated 'R' or 'PG'.
 -- (Figure out which table holds that data).
+<br>
+<br>
+```SELECT title, rating ```
+<br>
+```FROM film;```
+<br>
+```WHERE rating = 'R' or rating = 'PG';```
+<br>
 
 
 -- 8. Retrieve the title, rental duration, rental rate, and rental cost 
 -- (calculated field as above) for films where their 
 -- rental cost is greater than €30.00.
+<br>
+<br>
+```SELECT title,rental_duration,rental_rate, (rental_duration * rental_rate) AS rental_cost```
+<br>
+```FROM film;```
+<br>
+```WHERE rental_duration * rental_rate > 30;```
 
 
 -- 9. Retrieve the maximum rental duration from the film table.
@@ -79,6 +108,13 @@
 
 -- 16. Retrieve address IDs and addresses containing 'Santiago' in 
 -- any part of the address.
+<br>
+<br>
+```SELECT address_id, address ```
+<br>
+```FROM address```
+<br>
+```WHERE address LIKE '%Santiago%';```
 
 
 -- 17. Retrieve addresses and districts that have exactly four characters

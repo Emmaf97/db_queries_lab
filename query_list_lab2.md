@@ -2,43 +2,76 @@
 -- Manually create the tables cd.facilities and cd.members 
 -- shown at the URL above (make cd.bookings too if you like)
 
-CREATE TABLE cd.members
-    (
-       memid integer NOT NULL, 
-       surname character varying(200) NOT NULL, 
-       firstname character varying(200) NOT NULL, 
-       address character varying(300) NOT NULL, 
-       zipcode integer NOT NULL, 
-       telephone character varying(20) NOT NULL, 
-       recommendedby integer,
-       joindate timestamp NOT NULL,
-       CONSTRAINT members_pk PRIMARY KEY (memid),
-       CONSTRAINT fk_members_recommendedby FOREIGN KEY (recommendedby)
-            REFERENCES cd.members(memid) ON DELETE SET NULL
-    );
+```CREATE TABLE cd.members```
+<br>
+```    ( ```
+<br>
+```      memid integer NOT NULL, ```
+<br>
+```      surname character varying(200) NOT NULL, ```
+<br>
+```      firstname character varying(200) NOT NULL, ```
+<br>
+```      address character varying(300) NOT NULL, ```
+<br>
+```      zipcode integer NOT NULL, ```
+<br>
+```      telephone character varying(20) NOT NULL, ```
+<br>
+```      recommendedby integer,```
+<br>
+```      joindate timestamp NOT NULL,```
+<br>
+```      CONSTRAINT members_pk PRIMARY KEY (memid),```
+<br>
+```      CONSTRAINT fk_members_recommendedby FOREIGN KEY (recommendedby)```
+<br>
+```      REFERENCES cd.members(memid) ON DELETE SET NULL ```
+<br>
+```    ); ```
+<br>
     
-CREATE TABLE cd.facilities
-    (
-       facid integer NOT NULL, 
-       name character varying(100) NOT NULL, 
-       membercost numeric NOT NULL, 
-       guestcost numeric NOT NULL, 
-       initialoutlay numeric NOT NULL, 
-       monthlymaintenance numeric NOT NULL, 
-       CONSTRAINT facilities_pk PRIMARY KEY (facid)
-    );
+``` CREATE TABLE cd.facilities ```
+<br>
+```   ( ```
+<br>
+```       facid integer NOT NULL, ```
+<br>
+```       name character varying(100) NOT NULL, ```
+<br>
+```       membercost numeric NOT NULL, ```
+<br>
+```       guestcost numeric NOT NULL, ```
+<br>
+```       initialoutlay numeric NOT NULL, ```
+<br>
+```       monthlymaintenance numeric NOT NULL, ```
+<br>
+```       CONSTRAINT facilities_pk PRIMARY KEY (facid)```
+<br>
+```    );```
     
-CREATE TABLE cd.bookings
-    (
-       bookid integer NOT NULL, 
-       facid integer NOT NULL, 
-       memid integer NOT NULL, 
-       starttime timestamp NOT NULL,
-       slots integer NOT NULL,
-       CONSTRAINT bookings_pk PRIMARY KEY (bookid),
-       CONSTRAINT fk_bookings_facid FOREIGN KEY (facid) REFERENCES cd.facilities(facid),
-       CONSTRAINT fk_bookings_memid FOREIGN KEY (memid) REFERENCES cd.members(memid)
-    );
+``` CREATE TABLE cd.bookings ```
+<br>
+ ```   (```
+ <br>
+ ```      bookid integer NOT NULL, ```
+ <br>
+```       facid integer NOT NULL, ```
+<br>
+```       memid integer NOT NULL, ```
+<br>
+```       starttime timestamp NOT NULL,```
+<br>
+```       slots integer NOT NULL,```
+<br>
+```       CONSTRAINT bookings_pk PRIMARY KEY (bookid),```
+<br>
+```       CONSTRAINT fk_bookings_facid FOREIGN KEY (facid) REFERENCES cd.facilities(facid),```
+<br>
+```       CONSTRAINT fk_bookings_memid FOREIGN KEY (memid) REFERENCES cd.members(memid)```
+<br>
+```    );```
     
 -- 2.a: For each table (facilities/members/bookings)
 --		Explain what can... and what can't... happen?
@@ -54,16 +87,26 @@ CREATE TABLE cd.bookings
 -- and figure out what query to run
 --  test it on your local clubdata tables
 
-INSERT INTO facilities (facid, name, membercost, guestcost, initialoutlay, monthlymaintenance) VALUES
-(0, 'Tennis Court 1', 5, 25, 10000, 200),
-(1, 'Tennis Court 2', 5, 25, 8000, 200),
-(2, 'Badminton Court', 0, 15.5, 4000, 50),
-(3, 'Table Tennis', 0, 5, 320, 10),
-(4, 'Massage Room 1', 35, 80, 4000, 3000),
-(5, 'Massage Room 2', 35, 80, 4000, 3000),
-(6, 'Squash Court', 3.5, 17.5, 5000, 80),
-(7, 'Snooker Table', 0, 5, 450, 15),
-(8, 'Pool Table', 0, 5, 400, 15);
+``` INSERT INTO facilities (facid, name, membercost, guestcost, initialoutlay, monthlymaintenance) VALUES ```
+<br>
+``` (0, 'Tennis Court 1', 5, 25, 10000, 200),```
+<br>
+``` (1, 'Tennis Court 2', 5, 25, 8000, 200),```
+<br>
+``` (2, 'Badminton Court', 0, 15.5, 4000, 50),```
+<br>
+``` (3, 'Table Tennis', 0, 5, 320, 10),```
+<br>
+``` (4, 'Massage Room 1', 35, 80, 4000, 3000),```
+<br>
+``` (5, 'Massage Room 2', 35, 80, 4000, 3000),```
+<br>
+``` (6, 'Squash Court', 3.5, 17.5, 5000, 80),```
+<br>
+``` (7, 'Snooker Table', 0, 5, 450, 15),```
+<br>
+``` (8, 'Pool Table', 0, 5, 400, 15);```
+<br>
 
 INSERT INTO members (memid, surname, firstname, address, zipcode, telephone, recommendedby, joindate) VALUES
 (0, 'GUEST', 'GUEST', 'GUEST', 0, '(000) 000-0000', NULL, '2012-07-01 00:00:00'),

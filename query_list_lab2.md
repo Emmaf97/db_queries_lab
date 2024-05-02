@@ -74,16 +74,15 @@
 ```    );```
     
 -- 2.a: For each table (facilities/members/bookings)
---		Explain what can... and what can't... happen?
---      {NOTE: ignore and references to 'FOREIGN KEY' for now]
+--	Explain what can... and what can't... happen?
+--  {NOTE: ignore and references to 'FOREIGN KEY' for now]
 
 -- 2.b: Do a SELCT * on each and see NO Data yet.
+No entries added yet
 
 -- Scroll-down
 -- and use the INSERTs for facilities and members
 -- to populate those tables with some data
-
-
 -- and figure out what query to run
 --  test it on your local clubdata tables
 
@@ -182,11 +181,13 @@ Completed tutorial
 -- 4. 
 -- ## Write the statement to 
 -- ## DROP THE bookings table IF it exists
+<br>
 ```DROP bookings if EXISTS:```
 
 -- 5.
 -- ## Recreate it and populate it with 
 -- ## these limited inserts
+<br>
 ```CREATE TABLE bookings ( ```
 ```bookid integer,```
 ```facid integer,```
@@ -221,10 +222,13 @@ Completed tutorial
 
 -- 5. 
 -- ## Rename the table to 'booking' (singular)
+<br> 
+```ALTER TABLE bookings RENAME TO booking;```
 
 
 -- 6.
--- ## Remove the column 'mamid' 
+-- ## Remove the column 'memid' 
+```ALTER TABLE booking DROP memid;```
 
 
 -- 7.

@@ -176,15 +176,25 @@
 -- 3.
 -- ## Follow this tutorial:
 -- https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-date/
+Completed tutorial
 
 
 -- 4. 
 -- ## Write the statement to 
 -- ## DROP THE bookings table IF it exists
+```DROP bookings if EXISTS:```
 
 -- 5.
 -- ## Recreate it and populate it with 
 -- ## these limited inserts
+```CREATE TABLE bookings ( ```
+```bookid integer,```
+```facid integer,```
+```memid integer,```
+```starttime DATE,```
+```slots integer);```
+
+
 
 ```INSERT INTO bookings (bookid, facid, memid, starttime, slots) VALUES```
 <br>

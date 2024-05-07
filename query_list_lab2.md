@@ -228,6 +228,7 @@ Completed tutorial
 
 -- 6.
 -- ## Remove the column 'memid' 
+<br> 
 ```ALTER TABLE booking DROP memid;```
 
 
@@ -260,6 +261,8 @@ Completed tutorial
 -- ## 'paid', 'un-paid' or  'chase-up'
 
 <br>
+
+```ADD CONSTRAINT check_payment_status CHECK (payment_status IN ('paid', 'unpaid', 'chase-up'));```
 ```SELECT * FROM booking WHERE bookid = 3```
 <br>
 ```UPDATE booking SET payment_status = 'chase-up' ```
@@ -272,6 +275,7 @@ Completed tutorial
 -- ## (How could you use the psql cmd-line tool to check this?)
 
 <br>
+
 ```SELECT * FROM booking WHERE bookid = 3```
 <br>
 ```UPDATE booking SET payment_status = '' ```
@@ -281,12 +285,14 @@ Completed tutorial
 
 -- 11.
 -- ## Rename the column 'starttime' to 'start_time'
+<br> 
 ```ALTER TABLE booking RENAME starttime TO start_time```
 
 
 -- 12.
 -- ## Change the column 'payment_status' to have be
 -- ## of type VARCHAR(7);
+<br> 
 ```ALTER TABLE booking ALTER COLUMN payment_status TYPE VARCHAR(7);```
 
 -- 13.

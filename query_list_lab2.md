@@ -236,28 +236,58 @@ Completed tutorial
 -- ## Add an 'end_time' column that shows 
 -- ## the 'starttime' with the number-of 'slots'
 -- ## from the 'slots' column times 20minutes
+<br>
+```ALTER TABLE booking```
+<br>
+```ADD COLUMN end_time TIMESTAMP;```
+<br>
+```UPDATE booking SET end_time = starttime + INTERVAL '20 minutes' * slots;```
 
 
 -- 8.
 -- ## Add a column 'payment_status'
 -- ## and fill it with the value 'paid'
+<br>
+```ALTER TABLE booking```
+<br>
+```ADD COLUMN payment_status TEXT;```
+<br>
+```UPDATE booking SET payment_status = 'paid'```
 
 -- 9.
 -- ## Put a constraint on the 'payment_status'
 -- ## so that it can only store values
 -- ## 'paid', 'un-paid' or  'chase-up'
 
+<br>
+```SELECT * FROM booking WHERE bookid = 3```
+<br>
+```UPDATE booking SET payment_status = 'chase-up' ```
+<br>
+```WHERE bookid = 3;```
+
 -- 10.
 -- ## Write a statement(s) to test the 
 -- ## constraint is in effect.
 -- ## (How could you use the psql cmd-line tool to check this?)
 
+<br>
+```SELECT * FROM booking WHERE bookid = 3```
+<br>
+```UPDATE booking SET payment_status = '' ```
+<br>
+```WHERE bookid = 1;```
+
+
 -- 11.
 -- ## Rename the column 'starttime' to 'start_time'
+```ALTER TABLE booking RENAME starttime TO start_time```
+
 
 -- 12.
 -- ## Change the column 'payment_status' to have be
 -- ## of type VARCHAR(7);
+```ALTER TABLE booking ALTER COLUMN payment_status TYPE VARCHAR(7);```
 
 -- 13.
 -- ## Make the booking table 'facid' be a 
